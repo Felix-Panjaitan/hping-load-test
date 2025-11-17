@@ -4,13 +4,7 @@ A Kubernetes-ready containerized load testing tool using hping3 for high-intensi
 
 ## 🚀 Quick Start
 
-### 1. Build and Push Docker Image
-```bash
-docker build -f hping.dockerfile -t yourusername/hping-python:latest .
-docker push yourusername/hping-python:latest
-```
-
-### 2. Deploy to Kubernetes
+### 1. Run Instantly
 ```bash
 kubectl create configmap hping-script --from-file=hping_script.py
 kubectl apply -f hping.yaml
