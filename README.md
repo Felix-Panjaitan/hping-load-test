@@ -13,7 +13,7 @@ kubectl apply -f hping.yaml
 ## ⚙️ Configuration
 
 ### Target Configuration
-Edit the ConfigMap in `hping.yaml` or modify `hping_script.py`:
+modify `hping_script.py`:
 
 ```python
 TARGET_IP = "202.58.172.237"     # Change to your target IP
