@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: hping-daemonset
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: hping-load-test
+  template:
+    metadata:
+      labels:
+        app: hping-load-test
+    spec:
+      hostNetwork: true
+      containers:
+      - name: hping-load-test
+        image: d1ngus/hping-python:latest
+        volumeMounts:
+        - name: script-volume
+          mountPath: /app
+        securityContext:
+          privileged: true
+          capabilities:
+            add:
+            - NET_RAW
+            - NET_ADMIN
+            - SYS_ADMIN
+      volumes:
+      - name: script-volume
+        configMap:
+          name: hping-script
+      restartPolicy: Always
