@@ -58,22 +58,9 @@ spec:
 
 ## 🔧 Updating Configuration
 
-### Method 1: Update ConfigMap (Recommended)
-```bash
-# Edit the script in hping.yaml
-nano hping.yaml
-
-# Apply changes
-kubectl apply -f hping.yaml
-
-# Restart pods to pick up changes
-kubectl rollout restart daemonset/hping-daemonset
-```
-
-### Method 2: Direct ConfigMap Edit
+### Direct ConfigMap Edit
 ```bash
 kubectl edit configmap hping-script
-kubectl rollout restart daemonset/hping-daemonset
 ```
 
 ## 📋 Management Commands
